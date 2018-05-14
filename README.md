@@ -1,6 +1,6 @@
 # MDQT Container - A Metadata Query Tool (in a container)
 
-This project wraps a 20k utility written in Ruby inside an entire portable
+This project wraps a 20kb utility written in Ruby inside an entire portable
 OS, which feels rather ridiculous but may be useful for people who
 can install Docker but who don't want to bother with a Ruby and
 C development environment.
@@ -28,26 +28,26 @@ The UK Access Management Federation has a
 
 ## Installation
 
-Quick alias to run only with built in files, outputting to STDOUT and STDERR
+A quick alias to run only with built-in files, outputting to STDOUT and STDERR:
 
-    $ alias mdq="docker run --rm digitalidentity/mdqt"
+    $ alias mdqt="docker run --rm digitalidentity/mdqt"
 
-Then run with a relatively normal mdqt command (after a delay the first time)
+Run with a relatively normal mdqt command (after a delay the first time while it downloads):
 
-    $ mdq get --cache --verbose --verify-with example.pem {sha1}52e2065fc0d53744e8d4ee2c2f30696ebfc5def9
+    $ mdqt get --cache --verbose --verify-with example.pem {sha1}52e2065fc0d53744e8d4ee2c2f30696ebfc5def9
 
 That's it!
 
 To access new certificates (you should use new certificates) and write files
 you will need to mount your current working directory at /opt/app in the container:
 
-    $ alias mdq="docker run -v $PWD:/opt/app --rm digitalidentity/mdqt"
-    $  mdq get --cache --verbose --verify-with my_cheked_cert.pem --save-to md [sha1]52e2065fc0d53744e8d4ee2c2f30696ebfc5def9
+    $ alias mdqt="docker run -v $PWD:/opt/app --rm digitalidentity/mdqt"
+    $ mdqt get --cache --verbose --verify-with my_cheked_cert.pem --save-to md [sha1]52e2065fc0d53744e8d4ee2c2f30696ebfc5def9
 
-If you are always using the same MDQ server you should specify it with an
-environment variable.
+If you are always using the same MDQ server you can specify it with an
+environment variable to save time:
 
-    $ alias mdq="docker run -e MDQT_SERVICE='http://mdq-beta.incommon.org/global' --rm digitalidentity/mdqt"
+    $ alias mdqt="docker run -e MDQT_SERVICE='http://mdq-beta.incommon.org/global' --rm digitalidentity/mdqt"
 
 ## Using MDQT
 
