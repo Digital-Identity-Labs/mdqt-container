@@ -30,7 +30,7 @@ The UK Access Management Federation has a
 
 A quick alias to run only with built-in files, outputting to STDOUT and STDERR:
 
-    $ alias mdqt="docker run --rm digitalidentity/mdqt"
+    $ alias mdqt='docker run --rm digitalidentity/mdqt'
 
 Run with a relatively normal mdqt command (after a delay the first time while it downloads):
 
@@ -41,13 +41,13 @@ That's it!
 To access new certificates (you should use new certificates) and write files
 you will need to mount your current working directory at /opt/app in the container:
 
-    $ alias mdqt="docker run -v $PWD:/opt/app --rm digitalidentity/mdqt"
-    $ mdqt get --cache --verbose --verify-with my_cheked_cert.pem --save-to md [sha1]52e2065fc0d53744e8d4ee2c2f30696ebfc5def9
+    $ alias mdqt='docker run -v $(pwd):/opt/app --rm digitalidentity/mdqt'
+    $ mdqt get --cache --verbose --verify-with my_checked_cert.pem --save-to md [sha1]52e2065fc0d53744e8d4ee2c2f30696ebfc5def9
 
 If you are always using the same MDQ server you can specify it with an
 environment variable to save time:
 
-    $ alias mdqt="docker run -e MDQT_SERVICE='http://mdq-beta.incommon.org/global' --rm digitalidentity/mdqt"
+    $ alias mdqt='docker run -e MDQT_SERVICE="http://mdq-beta.incommon.org/global" --rm digitalidentity/mdqt'
 
 ## Using MDQT
 
