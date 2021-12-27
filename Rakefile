@@ -1,8 +1,8 @@
 require 'tempfile'
 
-repo1 = "ghcr.io/digital-identity-labs/mdqt-container"
-repo2 = "digitalidentity/mdqt-container"
-snapshot_name = "mdqt-container:snapshot"
+repo1 = "ghcr.io/digital-identity-labs/mdqt"
+repo2 = "digitalidentity/mdqt"
+snapshot_name = "mdqt:snapshot"
 full_version = File.read("VERSION").to_s.strip
 
 task :default => :refresh
